@@ -5,7 +5,7 @@ so the three don't drift. This package is made from the app's design system and 
 there. Don't edit it here: a change made here is lost at the next release.
 
 Components and base styles (the focus ring, the page's background) are each app's own. Only the
-values are shared.
+values and the brand's files are shared.
 
 ## Files
 
@@ -38,6 +38,24 @@ With Tailwind v4, in the stylesheet that imports Tailwind:
   Load Geist with `next/font` under those variable names; without them, the system stack shows.
 - **Without Tailwind:** import `tokens.css` alone and use the variables, as in `var(--foreground)`.
 
+## Brand
+
+`brand/` holds the files of the L07 brand kit, the same the app uses:
+
+- `brand/logos/`: the symbol, compact, horizontal and stacked logos and the name alone
+  (`wordmark`), each in light, dark, black, white, blue and blue-dark SVG, with the lettering
+  outlined.
+- `brand/icons/`: `favicon.ico` (the 16 and 32 px marks), PNG icons of 16, 32, 180, 192 and
+  512 px, the 3-layer `favicon.svg`, and the kit's `site.webmanifest`.
+- `brand/social/`: the link preview (`og`, 1200 × 630) and the email header (640 × 120), light and
+  dark.
+- `brand/README.md`: the kit's rules on clear space, smallest sizes and colours.
+
+On screen, use the light files on light surfaces and the dark files in the dark theme. Or inline an
+SVG and fill its mark with `var(--brand)` and its name with `var(--foreground)`, as the app's
+`Logo` does, so one file follows both themes. With pnpm the files are in
+`node_modules/@extrudio/tokens/brand/`: copy the ones a page serves into its `public/`.
+
 ## Rules
 
 - **Use the tokens, never raw values.** The palette is switched off, so only token colours exist.
@@ -55,6 +73,10 @@ With Tailwind v4, in the stylesheet that imports Tailwind:
 - A major renames or removes a token.
 
 Each tag's commit says which commit of the app it came from.
+
+A published tag is never moved or deleted, and the repo stays public. The apps' lockfiles pin each
+tag's commit and integrity hash, and Vercel fetches the package on every build, so a moved tag
+would break their builds. A fix is always a new version.
 
 ## Releasing
 

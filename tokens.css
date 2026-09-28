@@ -10,7 +10,7 @@
  */
 
 :root {
-  /* Brand (placeholders until the logo package) */
+  /* Brand (the L07 kit of 2026-09-28: its logo is drawn in brand and foreground) */
   --font-sans:
     var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji";
