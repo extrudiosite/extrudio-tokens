@@ -1,0 +1,19 @@
+{
+  "name": "@extrudio/tokens",
+  "version": "1.0.0",
+  "description": "Extrudio's design tokens: the W3C Design Tokens JSON, the CSS variables and a Tailwind v4 theme.",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": "github:extrudiosite/extrudio-tokens",
+  "type": "module",
+  "exports": {
+    "./tokens.json": "./tokens.json",
+    "./tokens.css": "./tokens.css",
+    "./theme.css": "./theme.css"
+  },
+  "files": [
+    "tokens.json",
+    "tokens.css",
+    "theme.css"
+  ]
+}
