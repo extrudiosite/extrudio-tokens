@@ -12,11 +12,11 @@
 :root {
   /* Brand (the L07 kit of 2026-09-28: its logo is drawn in brand and foreground) */
   --font-sans:
-    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+    var(--font-brand-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono:
     var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --radius: 0.625rem;
+  --radius: 0.875rem;
   --brand: oklch(0.53 0.21 264);
   --brand-foreground: oklch(0.99 0 0);
 
@@ -43,8 +43,24 @@
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
 
+  /*
+   * Type sizes, behind text-xs to text-6xl: a step under Tailwind's from sm up, since Plus
+   * Jakarta Sans sets large (request 90). xs stays 12 px, the smallest the app sets. A
+   * typeface that sets smaller swaps this group with the font.
+   */
+  --type-xs: 0.75rem;
+  --type-sm: 0.8125rem;
+  --type-base: 0.9375rem;
+  --type-lg: 1.0625rem;
+  --type-xl: 1.1875rem;
+  --type-2xl: 1.375rem;
+  --type-3xl: 1.75rem;
+  --type-4xl: 2.125rem;
+  --type-5xl: 2.8125rem;
+  --type-6xl: 3.5rem;
+
   /* Surfaces and text */
-  --background: var(--neutral-25);
+  --background: var(--neutral-0);
   --foreground: var(--neutral-1000);
   --card: var(--neutral-0);
   --card-foreground: var(--foreground);
@@ -54,8 +70,15 @@
   --muted-foreground: var(--neutral-600);
   /* The stage behind a render: neutral mid-light grey, like a photographer's backdrop. */
   --stage: var(--neutral-150);
+  /*
+   * A large quiet block that groups the start of a page, such as Home's: one step off the
+   * page, never behind a render.
+   */
+  --panel: var(--neutral-100);
+  /* Tiles and bars that sit on a panel. */
+  --panel-raised: var(--neutral-0);
   /* The app's sidebar: one step below the page, so navigation reads as its own layer. */
-  --sidebar: oklch(0.975 0 0);
+  --sidebar: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.93 0 0);
 
   /* Actions */
@@ -73,6 +96,15 @@
   --success-foreground: oklch(0.99 0 0);
   --warning: oklch(0.52 0.105 68);
   --warning-foreground: oklch(0.99 0 0);
+
+  /*
+   * The 3D view's axes: its arrows and ring, and the panel's rows that move along them (red
+   * sideways, green up, blue towards you), and a handle under the pointer
+   */
+  --axis-x: oklch(0.626 0.193 23);
+  --axis-y: oklch(0.641 0.133 157.7);
+  --axis-z: oklch(0.544 0.191 267);
+  --axis-active: oklch(0.854 0.157 84.1);
 
   /* Lines and focus */
   --border: var(--neutral-200);
@@ -94,7 +126,7 @@
   --brand: oklch(0.7 0.155 264);
   --brand-foreground: oklch(0.16 0 0);
 
-  --background: oklch(0.2 0 0);
+  --background: oklch(0.185 0 0);
   --foreground: oklch(0.97 0 0);
   --card: oklch(0.232 0 0);
   --card-foreground: var(--foreground);
@@ -103,7 +135,9 @@
   --muted: oklch(0.275 0 0);
   --muted-foreground: oklch(0.76 0 0);
   --stage: oklch(0.265 0 0);
-  --sidebar: oklch(0.172 0 0);
+  --panel: oklch(0.22 0 0);
+  --panel-raised: oklch(0.275 0 0);
+  --sidebar: oklch(0.16 0 0);
   --sidebar-accent: oklch(0.25 0 0);
 
   --secondary: oklch(0.3 0 0);
@@ -117,6 +151,15 @@
   --success-foreground: oklch(0.16 0 0);
   --warning: oklch(0.8 0.14 75);
   --warning-foreground: oklch(0.16 0 0);
+
+  /*
+   * The 3D view's axes: its arrows and ring, and the panel's rows that move along them (red
+   * sideways, green up, blue towards you), and a handle under the pointer
+   */
+  --axis-x: oklch(0.626 0.193 23);
+  --axis-y: oklch(0.641 0.133 157.7);
+  --axis-z: oklch(0.544 0.191 267);
+  --axis-active: oklch(0.854 0.157 84.1);
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 40%);

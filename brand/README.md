@@ -41,4 +41,4 @@ watermarks and presentation files stay with Ishai.
   neutral.
 - Write the name "Extrudio" in text. The logo's uppercase is lettering, not a way to write the
   name.
-- Sora (SIL OFL 1.1) is the logo's lettering only. The app's type stays Geist.
+- Sora (SIL OFL 1.1) is the logo's lettering only. The app's type is Plus Jakarta Sans.

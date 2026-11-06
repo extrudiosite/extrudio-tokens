@@ -34,8 +34,11 @@ With Tailwind v4, in the stylesheet that imports Tailwind:
 ```
 
 - **Dark theme:** a `dark` class on `<html>`. With next-themes, set `attribute="class"`.
-- **Typefaces:** `--font-sans` and `--font-mono` read `--font-geist-sans` and `--font-geist-mono`.
-  Load Geist with `next/font` under those variable names; without them, the system stack shows.
+- **Typefaces:** `--font-sans` reads `--font-brand-sans`, and `--font-mono` reads `--font-geist-mono`.
+  Load Plus Jakarta Sans and Geist Mono with `next/font` under those variable names; without them,
+  the system stack shows.
+- **Type sizes:** `text-xs` to `text-6xl` read `--type-xs` to `--type-6xl`, a step under Tailwind's
+  from `sm` up (13 px for `text-sm`, 15 px for `text-base`), since Plus Jakarta Sans sets large.
 - **Without Tailwind:** import `tokens.css` alone and use the variables, as in `var(--foreground)`.
 
 ## Brand
@@ -70,7 +73,8 @@ SVG and fill its mark with `var(--brand)` and its name with `var(--foreground)`,
 
 - A patch changes values.
 - A minor adds tokens.
-- A major renames or removes a token.
+- A major renames or removes a token. The site and the admin app draw with them, so their agents
+  hear before such a release; a test in the app lists the tokens the admin relies on.
 
 Each tag's commit says which commit of the app it came from.
 
@@ -89,6 +93,9 @@ pnpm tokens:release 1.1.0
 
 The script writes the package into the checkout and prints the commit, tag and push commands. It
 refuses a version that isn't later than the published one, and uncommitted tokens.
+
+A major can come first as a release candidate, as `pnpm tokens:release 2.0.0-rc.1`, for the apps to
+build against before it ships; the version itself follows once it does.
 
 Copyright Extrudio. All rights reserved. The repo is public so that the apps' builds can install it
 without credentials.

@@ -28,10 +28,146 @@
   }
 }
 
+/*
+ * The video motions' glyphs (motion-glyph.tsx): a part of each plays its motion while its tile is
+ * pointed at or chosen. Lengths are the glyph's own 24-unit box; nothing moves under reduced
+ * motion, since the classes are motion-safe.
+ */
+@theme {
+  --animate-glyph-sweep: glyph-sweep 1.4s linear infinite;
+  --animate-glyph-swing: glyph-swing 1.4s var(--ease-standard) infinite
+    alternate;
+  --animate-glyph-build: glyph-build 2s var(--ease-standard) infinite;
+  --animate-glyph-orbit: glyph-orbit 2.4s linear infinite;
+  --animate-glyph-swivel: glyph-swivel 1.4s var(--ease-standard) infinite
+    alternate;
+  --animate-glyph-push: glyph-push 1.4s var(--ease-standard) infinite alternate;
+  --animate-glyph-pull: glyph-pull 1.4s var(--ease-standard) infinite alternate;
+  --animate-glyph-rise: glyph-rise 1.4s var(--ease-standard) infinite alternate;
+  --animate-glyph-slide: glyph-slide 1.8s var(--ease-standard) infinite
+    alternate;
+  --animate-glyph-spiral: glyph-spiral 3s linear infinite;
+
+  /* A turning print: a mark on it crosses its face and goes round the back. */
+  @keyframes glyph-sweep {
+    0% {
+      transform: translateX(-3.5px);
+      opacity: 0;
+    }
+    15%,
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(3.5px);
+      opacity: 0;
+    }
+  }
+  /* A swaying print: the mark goes a little way each side and back. */
+  @keyframes glyph-swing {
+    from {
+      transform: translateX(-2.5px);
+    }
+    to {
+      transform: translateX(2.5px);
+    }
+  }
+  /* A print that builds: its layers rise from the table, then hold. */
+  @keyframes glyph-build {
+    0% {
+      transform: translate(0, 20px) scale(1, 0) translate(0, -20px);
+    }
+    70%,
+    100% {
+      transform: translate(0, 20px) scale(1, 1) translate(0, -20px);
+    }
+  }
+  /* A camera seen from above, round the print at the middle of the box. */
+  @keyframes glyph-orbit {
+    from {
+      transform: translate(12px, 12px) rotate(0deg) translate(-12px, -12px);
+    }
+    to {
+      transform: translate(12px, 12px) rotate(360deg) translate(-12px, -12px);
+    }
+  }
+  /* A camera seen from above, swinging on an arc in front of the print and back. */
+  @keyframes glyph-swivel {
+    from {
+      transform: translate(12px, 7.5px) rotate(-35deg) translate(-12px, -7.5px);
+    }
+    to {
+      transform: translate(12px, 7.5px) rotate(35deg) translate(-12px, -7.5px);
+    }
+  }
+  @keyframes glyph-push {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(5px);
+    }
+  }
+  @keyframes glyph-pull {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-4px);
+    }
+  }
+  @keyframes glyph-rise {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-9px);
+    }
+  }
+  @keyframes glyph-slide {
+    from {
+      transform: translateX(-7px);
+    }
+    to {
+      transform: translateX(7px);
+    }
+  }
+  /* Side to side and up: round the print while it climbs. */
+  @keyframes glyph-spiral {
+    0% {
+      transform: translate(-7px, 0);
+    }
+    25% {
+      transform: translate(7px, -3.5px);
+    }
+    50% {
+      transform: translate(-7px, -7px);
+    }
+    75% {
+      transform: translate(7px, -10.5px);
+    }
+    100% {
+      transform: translate(-7px, -14px);
+    }
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-heading: var(--font-sans);
+
+  /* The sizes are tokens; each keeps Tailwind's line height for it, as a ratio of the size. */
+  --text-xs: var(--type-xs);
+  --text-sm: var(--type-sm);
+  --text-base: var(--type-base);
+  --text-lg: var(--type-lg);
+  --text-xl: var(--type-xl);
+  --text-2xl: var(--type-2xl);
+  --text-3xl: var(--type-3xl);
+  --text-4xl: var(--type-4xl);
+  --text-5xl: var(--type-5xl);
+  --text-6xl: var(--type-6xl);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -42,6 +178,8 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-stage: var(--stage);
+  --color-panel: var(--panel);
+  --color-panel-raised: var(--panel-raised);
   --color-sidebar: var(--sidebar);
   --color-sidebar-accent: var(--sidebar-accent);
   --color-primary: var(--primary);
@@ -54,6 +192,10 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-axis-x: var(--axis-x);
+  --color-axis-y: var(--axis-y);
+  --color-axis-z: var(--axis-z);
+  --color-axis-active: var(--axis-active);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
