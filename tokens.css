@@ -59,6 +59,17 @@
   --type-5xl: 2.8125rem;
   --type-6xl: 3.5rem;
 
+  /*
+   * Display sizes for headlines above text-6xl, the site's (the showroom, 2026-11-08): each
+   * steps up from 48rem and from 80rem wide, set tight, behind text-display-1 to
+   * text-display-3. The app sets none.
+   */
+  --type-display-1: 2.75rem;
+  --type-display-2: 2.5rem;
+  --type-display-3: 2.125rem;
+  --type-display-tracking: -0.045em;
+  --type-display-leading: 0.98;
+
   /* Surfaces and text */
   --background: var(--neutral-0);
   --foreground: var(--neutral-1000);
@@ -116,6 +127,21 @@
   --elevation-2: 0 1px 3px oklch(0 0 0 / 0.08), 0 4px 12px oklch(0 0 0 / 0.06);
   --elevation-3: 0 8px 24px oklch(0 0 0 / 0.12), 0 2px 6px oklch(0 0 0 / 0.06);
   --elevation-4: 0 24px 64px oklch(0 0 0 / 0.2), 0 4px 12px oklch(0 0 0 / 0.08);
+}
+
+@media (width >= 48rem) {
+  :root {
+    --type-display-1: 5.5rem;
+    --type-display-2: 4.5rem;
+    --type-display-3: 3.5rem;
+  }
+}
+
+@media (width >= 80rem) {
+  :root {
+    --type-display-1: 7rem;
+    --type-display-2: 5.25rem;
+  }
 }
 
 /*
