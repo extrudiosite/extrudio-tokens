@@ -35,10 +35,11 @@ With Tailwind v4, in the stylesheet that imports Tailwind:
 
 - **Dark theme:** a `dark` class on `<html>`. With next-themes, set `attribute="class"`.
 - **Typefaces:** `--font-sans` reads `--font-brand-sans`, and `--font-mono` reads `--font-geist-mono`.
-  Load Plus Jakarta Sans and Geist Mono with `next/font` under those variable names; without them,
-  the system stack shows.
+  Load Geist Sans (since look C; Plus Jakarta Sans before) and Geist Mono with `next/font` under
+  those variable names; without them, the system stack shows.
 - **Type sizes:** `text-xs` to `text-6xl` read `--type-xs` to `--type-6xl`, a step under Tailwind's
-  from `sm` up (13 px for `text-sm`, 15 px for `text-base`), since Plus Jakarta Sans sets large.
+  from `sm` up (13 px for `text-sm`, 15 px for `text-base`): set for Plus Jakarta Sans, which sets
+  large, and kept for Geist Sans in look C as Ishai saw it.
 - **Display sizes:** `text-display-1` to `text-display-3`, for headlines above `text-6xl`, read
   `--type-display-1` to `--type-display-3`. Each steps up from 48rem and from 80rem wide by itself
   (`tokens.css` holds the `@media` blocks), and sets the tight `leading-display` (0.98) and

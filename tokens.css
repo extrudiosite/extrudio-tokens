@@ -4,9 +4,9 @@
  *
  * Extrudio's design tokens, the single source of every visual value, in the W3C Design Tokens
  * format. Colour-critical rule: every surface is achromatic (chroma 0), so the chrome never
- * tints a render. The one accent (brand) is for actions, focus and progress, never for
- * surfaces. Contrast of every pair the components use is in docs/DECISIONS.md. A rebrand edits
- * the Brand group only.
+ * tints a render. The one accent (brand) is for focus and the logo, never for surfaces; since
+ * look C (request 110) actions and progress take the foreground. Contrast of every pair the
+ * components use is in docs/DECISIONS.md. A rebrand edits the Brand group only.
  */
 
 :root {
@@ -16,7 +16,7 @@
     "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono:
     var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --radius: 0.875rem;
+  --radius: 0.625rem;
   --brand: oklch(0.53 0.21 264);
   --brand-foreground: oklch(0.99 0 0);
 
@@ -85,7 +85,7 @@
    * A large quiet block that groups the start of a page, such as Home's: one step off the
    * page, never behind a render.
    */
-  --panel: var(--neutral-100);
+  --panel: oklch(0.985 0 0);
   /* Tiles and bars that sit on a panel. */
   --panel-raised: var(--neutral-0);
   /* The app's sidebar: one step below the page, so navigation reads as its own layer. */
@@ -93,8 +93,12 @@
   --sidebar-accent: oklch(0.93 0 0);
 
   /* Actions */
-  --primary: var(--brand);
-  --primary-foreground: var(--brand-foreground);
+  /*
+   * The primary action is the foreground (look C, request 110): black on light, white on dark.
+   * The brand's blue stays in the logo and focus.
+   */
+  --primary: var(--foreground);
+  --primary-foreground: var(--neutral-0);
   --secondary: var(--neutral-150);
   --secondary-foreground: var(--foreground);
   --accent: var(--neutral-150);
@@ -118,9 +122,19 @@
   --axis-active: oklch(0.854 0.157 84.1);
 
   /* Lines and focus */
-  --border: var(--neutral-200);
+  --border: oklch(0 0 0 / 9%);
   --input: oklch(0.62 0 0);
   --ring: var(--brand);
+
+  /*
+   * The shell's frosted surfaces (the sidebar, the top bar) and the soft achromatic light
+   * behind them; never over a render (principle 1).
+   */
+  --glass: oklch(1 0 0 / 62%);
+  --glass-line: oklch(0 0 0 / 8%);
+  --glass-highlight: oklch(1 0 0 / 70%);
+  --glow: oklch(0 0 0 / 3%);
+  --glow-2: oklch(0 0 0 / 2%);
 
   /* Elevation */
   --elevation-1: 0 1px 2px oklch(0 0 0 / 0.06);
@@ -152,23 +166,25 @@
   --brand: oklch(0.7 0.155 264);
   --brand-foreground: oklch(0.16 0 0);
 
-  --background: oklch(0.185 0 0);
+  --background: oklch(0.145 0 0);
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.232 0 0);
+  --card: oklch(0.165 0 0);
   --card-foreground: var(--foreground);
-  --popover: oklch(0.255 0 0);
+  --popover: oklch(0.18 0 0);
   --popover-foreground: var(--foreground);
-  --muted: oklch(0.275 0 0);
+  --muted: oklch(0.21 0 0);
   --muted-foreground: oklch(0.76 0 0);
-  --stage: oklch(0.265 0 0);
-  --panel: oklch(0.22 0 0);
-  --panel-raised: oklch(0.275 0 0);
-  --sidebar: oklch(0.16 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
+  --stage: oklch(0.2 0 0);
+  --panel: oklch(0.16 0 0);
+  --panel-raised: oklch(0.19 0 0);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-accent: oklch(0.2 0 0);
 
-  --secondary: oklch(0.3 0 0);
+  --primary: var(--foreground);
+  --primary-foreground: oklch(0.16 0 0);
+  --secondary: oklch(0.2 0 0);
   --secondary-foreground: var(--foreground);
-  --accent: oklch(0.3 0 0);
+  --accent: oklch(0.21 0 0);
   --accent-foreground: var(--foreground);
 
   --destructive: oklch(0.72 0.16 25);
@@ -187,8 +203,14 @@
   --axis-z: oklch(0.544 0.191 267);
   --axis-active: oklch(0.854 0.157 84.1);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 40%);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 38%);
+
+  --glass: oklch(0.16 0 0 / 55%);
+  --glass-line: oklch(1 0 0 / 9%);
+  --glass-highlight: oklch(1 0 0 / 7%);
+  --glow: oklch(1 0 0 / 8%);
+  --glow-2: oklch(1 0 0 / 4%);
 
   --elevation-1: 0 1px 2px oklch(0 0 0 / 0.35);
   --elevation-2: 0 1px 3px oklch(0 0 0 / 0.4), 0 4px 12px oklch(0 0 0 / 0.3);

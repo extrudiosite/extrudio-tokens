@@ -198,6 +198,9 @@
   --color-panel-raised: var(--panel-raised);
   --color-sidebar: var(--sidebar);
   --color-sidebar-accent: var(--sidebar-accent);
+  /* The shell's glass (look C): bg-glass, border-glass-line. Never over a render. */
+  --color-glass: var(--glass);
+  --color-glass-line: var(--glass-line);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -232,6 +235,8 @@
   --shadow-sm: var(--elevation-2);
   --shadow-md: var(--elevation-3);
   --shadow-lg: var(--elevation-4);
+  /* The shell's floating glass (look C): a light top edge over the third elevation. */
+  --shadow-float: inset 0 1px 0 var(--glass-highlight), var(--elevation-3);
 
   --ease-standard: var(--ease-standard);
   --ease-emphasized: var(--ease-emphasized);
