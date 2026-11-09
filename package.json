@@ -1,6 +1,6 @@
 {
   "name": "@extrudio/tokens",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0-rc.4",
   "description": "Extrudio's design tokens: the W3C Design Tokens JSON, the CSS variables and a Tailwind v4 theme.",
   "private": true,
   "license": "UNLICENSED",

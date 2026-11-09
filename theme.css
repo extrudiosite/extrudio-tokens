@@ -201,6 +201,8 @@
   /* The shell's glass (look C): bg-glass, border-glass-line. Never over a render. */
   --color-glass: var(--glass);
   --color-glass-line: var(--glass-line);
+  /* Behind a dialog or a sheet: bg-scrim, a dim and never a blur (principle 1). */
+  --color-scrim: var(--scrim);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
